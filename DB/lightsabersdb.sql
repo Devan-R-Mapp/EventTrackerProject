@@ -23,6 +23,10 @@ DROP TABLE IF EXISTS `lightsaber` ;
 CREATE TABLE IF NOT EXISTS `lightsaber` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `owner` VARCHAR(45) NULL,
+  `color` VARCHAR(45) NULL,
+  `length` INT(3) NULL,
+  `alignment` VARCHAR(45) NULL,
+  `destroyed` TINYINT(1) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -42,7 +46,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `lightsabersdb`;
-INSERT INTO `lightsaber` (`id`, `owner`) VALUES (1, 'Obi-Wan Kenobi');
+INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`) VALUES (1, 'Obi-Wan Kenobi', 'Blue', 36, 'Light', 1);
+INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`) VALUES (2, 'Darth Vader', 'Red', 36, 'Dark', 0);
 
 COMMIT;
 

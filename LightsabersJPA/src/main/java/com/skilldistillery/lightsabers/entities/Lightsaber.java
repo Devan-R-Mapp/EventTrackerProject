@@ -13,7 +13,13 @@ public class Lightsaber {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String owner;
-
+	private String color;
+	private Integer length;
+	private String Alignment;
+	private boolean destroyed;
+	
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -33,7 +39,7 @@ public class Lightsaber {
 
 	@Override
 	public String toString() {
-		return "Lightsaber [id=" + id + ", owner=" + owner + "]";
+		return "Lightsaber [id=" + id + ", owner=" + owner + ", color=" + color + ", Alignment=" + Alignment + "]";
 	}
 
 	public int getId() {
@@ -51,5 +57,38 @@ public class Lightsaber {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public Integer getLength() {
+		return length;
+	}
+
+	public void setLength(Integer length) {
+		this.length = length;
+	}
+
+	public String getAlignment() {
+		return Alignment;
+	}
+
+	public void setAlignment(String alignment) {
+		Alignment = alignment;
+	}
+
+	public boolean isDestroyed() {
+		return destroyed;
+	}
+
+	public void setDestroyed(boolean destroyed) {
+		this.destroyed = destroyed;
+	}
+
 
 }
