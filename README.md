@@ -16,6 +16,11 @@ current paths that work:
 ../api/lightsabers/id -  delete one (delete)
 
 
+For the Javascript interface, the web page has dynamic changes to the page.
+From the web page there is full Crud operations, and for the data aggregation the application
+takes all lightsaber alignments and separates them, and then fins the over all percentage of the wins for each alignment. 
+
+
 ## Implementation
 * Bootstrap
 * JPA
@@ -30,6 +35,7 @@ current paths that work:
 
 ## Technologies
 * Java
+* JavaScript
 * Spring Tool Suite (Eclipse)
 * Atom
 * AWS
