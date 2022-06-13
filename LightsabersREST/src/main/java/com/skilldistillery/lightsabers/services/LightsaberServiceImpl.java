@@ -45,7 +45,10 @@ public class LightsaberServiceImpl implements LightsaberService {
 		updated.setColor(lightsaber.getColor());
 		updated.setLength(lightsaber.getLength());
 		updated.setAlignment(lightsaber.getAlignment());
-
+		updated.setDestroyed(lightsaber.isDestroyed());
+		updated.setBattles(lightsaber.getBattles());
+		updated.setWins(lightsaber.getWins());
+		
 		return repo.saveAndFlush(updated);
 	}
 

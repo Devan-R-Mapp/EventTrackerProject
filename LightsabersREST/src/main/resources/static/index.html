@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lightsabers</title>
+<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+</head>
+<body>
+<h1>Lightsaber Look up</h1>
+
+<div id="agg">
+
+</div>
+
+  <form name="lightsaberForm">
+    <input type="number" name="lightsaberId">
+    <button name="lookup">Get Lightsaber by ID</button>
+  </form>
+  
+  <div id="output">
+    <div id="lightsaberData"></div>
+  </div>
+  
+  <br>
+  
+  <div id="listAll">
+  <table id="lightsabersTable">
+  <tr>
+  <th style="text-align:left">Owner</th>
+  <th style="text-align:left">Color</th>
+  <th style="text-align:left">Length</th>
+  <th style="text-align:left">Alignment</th>
+  <th style="text-align:left">Destroyed?</th>
+  <th style="text-align:left">Battles</th>
+  <th style="text-align:left">Wins</th>
+  </tr>
+  </table>
+  </div>
+  
+  <br>
+  
+  <h1>Lightsaber Add</h1>
+  
+  	<form name="lightsaberFormAdd">
+	Owner: <input type="text" name="user"><br>
+	Color: <input type="text" name="color"><br>
+	Length(inches): <input type="number" name="length"><br>
+	Alignment: <input type="text" name="alignment"><br>
+	Battles: <input type="number" name="battles"><br>
+	Wins: <input type="number" name="wins"><br>
+	<button name="addLightsaber">Submit</button>
+
+	</form>
+
+</body>
+</html>
