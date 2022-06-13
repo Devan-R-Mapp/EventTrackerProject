@@ -50,7 +50,7 @@ START TRANSACTION;
 USE `lightsabersdb`;
 INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`, `battles`, `wins`) VALUES (1, 'Obi-Wan Kenobi', 'Blue', 36, 'Light', 0, 100, 80);
 INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`, `battles`, `wins`) VALUES (2, 'Darth Vader', 'Red', 36, 'Dark', 0, 100, 98);
-INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`, `battles`, `wins`) VALUES (3, 'Maul', 'Red', 72, 'Unaligned', 1, 20, 14);
+INSERT INTO `lightsaber` (`id`, `owner`, `color`, `length`, `alignment`, `destroyed`, `battles`, `wins`) VALUES (3, 'Maul', 'Red', 72, 'Unaligned', 1, 20, 13);
 
 COMMIT;
 
