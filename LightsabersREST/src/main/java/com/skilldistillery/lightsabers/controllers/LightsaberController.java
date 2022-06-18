@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.skilldistillery.lightsabers.services.LightsaberService;
 
 @RequestMapping("api")
 @RestController
+@CrossOrigin({ "*", "http://localhost" })
 public class LightsaberController {
 
 	@Autowired
@@ -28,22 +30,24 @@ public class LightsaberController {
 	public List<Lightsaber> index() {
 		return ls.index();
 	}
-	
+
 	@GetMapping("lightsabers/{id}")
 	public Lightsaber showOne(@PathVariable Integer id, HttpServletResponse HSR) {
 		Lightsaber runner = ls.findLightsaberbyId(id);
-		if (runner== null) {
+		if (runner == null) {
 			HSR.setStatus(404);
 		}
 		return runner;
 	}
+
 	@PostMapping("lightsabers")
 	public Lightsaber addLightsaber(@RequestBody Lightsaber lightsaber) {
 		return ls.createLightsaber(lightsaber);
 	}
 
 	@PutMapping("lightsabers/{lightsaberId}")
-	public Lightsaber updateLightsaber(@PathVariable Integer lightsaberId, @RequestBody Lightsaber lightsaber, HttpServletResponse res) {
+	public Lightsaber updateLightsaber(@PathVariable Integer lightsaberId, @RequestBody Lightsaber lightsaber,
+			HttpServletResponse res) {
 		try {
 			lightsaber = ls.updateLightsaber(lightsaber, lightsaberId);
 			if (lightsaber == null) {
