@@ -1,17 +1,15 @@
-<div>
-  <p>Lightsabers!</p>
+<div class="container-fluid">
   <h4>Display details</h4>
-  <button (click)='neatReload(); full = true; '>Full details</button>
-  <button (click)='hardReload(); full = false;'>No details</button>
-  <button (click)='create = true;'>Create a new Lightsaber</button>
-  <button *ngIf="selected.id && !full" (click)='reloadChooser(full)'>Show All</button>
+  <button class="btn btn-dark" (click)='reloadChooser(full = true)'>Full details</button>
+  <button class="btn btn-dark" (click)='reloadChooser(full = false)'>No details</button>
+  <button class="btn btn-dark" *ngIf="selected.id || create" (click)='reloadChooser(full)'>Show All</button>
+  <button class="btn btn-success" *ngIf="!create" (click)='create = true;'>Create a new Lightsaber</button>
   <br>
-
   <br>
   <br>
 </div>
 <h4 *ngIf="!selected.id"> Total Lighsabers: {{lightsabers.length}}</h4>
-<table *ngIf="!update && !create">
+<table class="container-fluid" *ngIf="!update && !create">
   <thead>
     <tr>
       <th>Owner</th>
@@ -21,8 +19,8 @@
       <th *ngIf="selected.id">Destroyed?</th>
       <th *ngIf="selected.id">Battles</th>
       <th *ngIf="selected.id">Wins</th>
-      <th *ngIf="selected.id"></th>
-      <th *ngIf="selected.id"></th>
+      <th></th>
+      <th></th>
 
     </tr>
   </thead>
@@ -36,10 +34,10 @@
       <td *ngIf="selected.id">{{ls.battles}}</td>
       <td *ngIf="selected.id">{{ls.wins}}</td>
       <td>
-        <button *ngIf="selected.id" (click)='deleteLightsaber(ls)'>Delete</button>
+        <button class="btn btn-danger" (click)='deleteLightsaber(ls)'>Delete</button>
       </td>
       <td>
-        <button *ngIf="selected.id" (click)='updatePage(ls)'>Update</button>
+        <button class="btn btn-warning"  (click)='updatePage(ls)'>Update</button>
       </td>
     </tr>
   </tbody>
@@ -51,6 +49,11 @@
 </table>
 
 <form *ngIf="update || create" action="">
+<div>
+  <h1 *ngIf="update && !create">Update</h1>
+  <h1 *ngIf="!update && create">Create</h1>
+</div>
+
 
   Owner: <input type="text" name="owner" value="{{selected.owner}}" required [(ngModel)]='newLightsaber.owner'><br>
   Color: <input type="text" name="color" value="{{selected.color}}" required [(ngModel)]='newLightsaber.color'><br>
@@ -61,7 +64,7 @@
   Battles: <input type="number" name="battles" value="{{selected.battles}}" required
     [(ngModel)]='newLightsaber.battles'><br>
   Wins: <input type="number" name="wins" value="{{selected.wins}}" required [(ngModel)]='newLightsaber.wins'><br>
-  <button *ngIf="update && !create" name="updateLightsaber"
+  <button  class="btn btn-success" *ngIf="update && !create" name="updateLightsaber"
     (click)="updateLightsaber(selected.id, newLightsaber)">Submit</button>
-  <button *ngIf="!update && create" name="addLightsaber" (click)="addLightsaber(newLightsaber)">Submit</button>
+  <button class="btn btn-success" *ngIf="!update && create" name="addLightsaber" (click)="addLightsaber(newLightsaber)">Submit</button>
 </form>

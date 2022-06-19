@@ -25,8 +25,12 @@ export class HomeComponent implements OnInit {
   reloadChooser(full: boolean) {
     if (full) {
       this.neatReload();
+      this.update = false;
+      this.create = false;
     } else {
       this.hardReload();
+      this.update = false;
+      this.create = false;
     }
   }
   reload() {
