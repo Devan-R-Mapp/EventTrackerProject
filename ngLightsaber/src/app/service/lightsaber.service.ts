@@ -39,9 +39,7 @@ export class LightsaberService {
   }
 
   create(ls: Lightsaber): Observable<Lightsaber> {
-    // const httpOptions = {
-    //   'Authorization': 'Basic c2hhdW46d29tYmF0MQ=='
-    // };
+
     return this.http.post<Lightsaber>(this.url, ls).pipe(
       catchError((err: any) => {
         console.log(err);
