@@ -1,8 +1,67 @@
-<p>Lightsabers!</p>
+<div>
+  <p>Lightsabers!</p>
+  <h4>Display details</h4>
+  <button (click)='neatReload(); full = true; '>Full details</button>
+  <button (click)='hardReload(); full = false;'>No details</button>
+  <button (click)='create = true;'>Create a new Lightsaber</button>
+  <button *ngIf="selected.id && !full" (click)='reloadChooser(full)'>Show All</button>
+  <br>
+
+  <br>
+  <br>
+</div>
+<h4 *ngIf="!selected.id"> Total Lighsabers: {{lightsabers.length}}</h4>
+<table *ngIf="!update && !create">
+  <thead>
+    <tr>
+      <th>Owner</th>
+      <th *ngIf="selected.id">Color</th>
+      <th *ngIf="selected.id">Length</th>
+      <th *ngIf="selected.id">Alignment</th>
+      <th *ngIf="selected.id">Destroyed?</th>
+      <th *ngIf="selected.id">Battles</th>
+      <th *ngIf="selected.id">Wins</th>
+      <th *ngIf="selected.id"></th>
+      <th *ngIf="selected.id"></th>
+      <th *ngIf="selected.id">
+    </tr>
+  </thead>
+  <tbody *ngFor="let ls of lightsabers">
+    <tr (click)='showLightsaber(ls)'>
+    <td>{{ls.owner}}'s Lightsaber</td>
+      <td *ngIf="selected.id">{{ls.color}}</td>
+      <td *ngIf="selected.id">{{ls.length}}</td>
+      <td *ngIf="selected.id">{{ls.alignment}}</td>
+      <td *ngIf="selected.id">{{ls.destroyed}}</td>
+      <td *ngIf="selected.id">{{ls.battles}}</td>
+      <td *ngIf="selected.id">{{ls.wins}}</td>
+      <td>
+        <button *ngIf="selected.id" (click)='deleteLightsaber(ls)'>Delete</button>
+      </td>
+      <td>
+        <button *ngIf="selected.id" (click)='updatePage(ls)'>Update</button>
+      </td>
+    </tr>
+  </tbody>
+  <br>
+  <br>
+  <br>
 
 
-<h3>Lightsabers</h3>
-<ul>
-  <li *ngFor="let ls of lightsabers">{{ls.owner}}'s lightsaber <br>
-    {{ls.color}}</li>
-</ul>
+</table>
+
+<form *ngIf="update || create" action="">
+
+  Owner: <input type="text" name="owner" value="{{selected.owner}}" required [(ngModel)]='newLightsaber.owner'><br>
+  Color: <input type="text" name="color" value="{{selected.color}}" required [(ngModel)]='newLightsaber.color'><br>
+  Length(inches): <input type="number" name="length" value="{{selected.length}}" required
+    [(ngModel)]='newLightsaber.length'><br>
+  Alignment: <input type="text" name="alignment" value="{{selected.alignment}}" required
+    [(ngModel)]='newLightsaber.alignment'><br>
+  Battles: <input type="number" name="battles" value="{{selected.battles}}" required
+    [(ngModel)]='newLightsaber.battles'><br>
+  Wins: <input type="number" name="wins" value="{{selected.wins}}" required [(ngModel)]='newLightsaber.wins'><br>
+  <button *ngIf="update && !create" name="updateLightsaber"
+    (click)="updateLightsaber(selected.id, newLightsaber)">Submit</button>
+  <button *ngIf="!update && create" name="addLightsaber" (click)="addLightsaber(newLightsaber)">Submit</button>
+</form>

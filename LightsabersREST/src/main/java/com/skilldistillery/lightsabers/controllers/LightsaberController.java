@@ -64,13 +64,13 @@ public class LightsaberController {
 	}
 
 	@DeleteMapping("lightsabers/{id}")
-	public String delete(@PathVariable int id) {
+	public boolean delete(@PathVariable int id) {
 		try {
 			ls.deleteLightsaber(id);
-			return "lightsaber was deleted";
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "lightsaber was not deleted";
+			return false;
 		}
 	}
 

@@ -26,7 +26,7 @@ export class LightsaberService {
     );
   }
 
-  show(id: number): Observable<Lightsaber> {
+  show(id: number | null): Observable<Lightsaber> {
     return this.http.get<Lightsaber>(this.url + '/' + id).pipe(
       catchError((err: any) => {
         console.log(err);
@@ -53,7 +53,7 @@ export class LightsaberService {
     );
   }
 
-  update(id: number, prod: Lightsaber): Observable<Lightsaber> {
+  update(id: number | null, prod: Lightsaber): Observable<Lightsaber> {
     return this.http.put<Lightsaber>(this.url + '/' + id, prod).pipe(
       catchError((err: any) => {
         console.log(err);
@@ -65,8 +65,8 @@ export class LightsaberService {
     );
   }
 
-  destroy(lsId: number): Observable<void> {
-    return this.http.delete<void>(this.url +'/'+ lsId).pipe(
+  destroy(lsId: number | null): Observable<boolean> {
+    return this.http.delete<boolean>(this.url +'/'+ lsId).pipe(
       catchError((err: any) => {
         console.log(err);
         return throwError(
